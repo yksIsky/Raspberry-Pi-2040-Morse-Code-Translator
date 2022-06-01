@@ -3,7 +3,6 @@ from machine import Pin
 from time import sleep
 
 
-
 class Pic_morse():
     def __init__(self):
         self.MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
@@ -21,15 +20,12 @@ class Pic_morse():
                                '0': '-----', ', ': '--..--', '.': '.-.-.-',
                                '?': '..--..', '/': '-..-.', '-': '-....-',
                                '(': '-.--.', ')': '-.--.-'}
-    
-    
-    
+     
     def pin_nr(self):
         
         pin_nr = int(input("Pin number from 1-25 default 25: "))
         self.builtin_led = Pin(pin_nr, Pin.OUT)
     
-
     def morse_name(self):
         name = input("Provide your name: ")
         name = name.replace(" ","")
@@ -59,7 +55,7 @@ class Pic_morse():
             elif i == ".":
                 self.short()
                 
-                
+           
 if __name__ == "__maine__":
   new_name = Pic_morse()
   new_name.morse_code()
