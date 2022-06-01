@@ -32,13 +32,13 @@ class Pic_morse():
         morse_name = []
         for i in name:
             morse_name.append(self.MORSE_CODE_DICT.get(i.upper()))
-        return "".join([i for i in morse_name])
+        return [i for i in morse_name]
 
     def long(self):
         self.builtin_led.value(1)
-        sleep(1)
+        sleep(0.6)
         self.builtin_led.value(0)
-        sleep(1)
+        sleep(0.6)
 
     def short(self):
         self.builtin_led.value(1)
@@ -50,10 +50,12 @@ class Pic_morse():
         self.pin_nr()
         m_name = self.morse_name()
         for i in m_name:
-            if i == "-":
-                self.long()
-            elif i == ".":
-                self.short()
+            for l in i:
+                if l == "-":
+                    self.long()
+                elif l == ".":
+                    self.short()
+             sleep(1)
                 
            
 if __name__ == "__maine__":
